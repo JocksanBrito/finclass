@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
-import { View } from "react-native";
 import { useTheme } from "styled-components";
+
+import openEye from "../../../assets/icons/openEye.png";
+import closeEye from "../../../assets/icons/closeEye.png";
 
 import * as Styled from "./styles";
 import { Props } from "./types";
@@ -30,16 +32,24 @@ const Input = ({
 
   return (
     <Styled.Container>
+      {!!name && (
+        <Styled.Label type="semiBold" size={12}>
+          {name}
+        </Styled.Label>
+      )}
       <Styled.Content>
+        {!!leftIcon && (
+          <Styled.LeftIconContainer>{leftIcon}</Styled.LeftIconContainer>
+        )}
         <Styled.TextInput
           bordeColor={bordeColor}
-          onFocus={(e)=> {
-            setHasFocus(true)
-            onFocus?.(e) 
+          onFocus={(e) => {
+            setHasFocus(true);
+            onFocus?.(e);
           }}
-          onBlur={(e)=> {
-            setHasFocus(false)
-            onBlur?.(e) 
+          onBlur={(e) => {
+            setHasFocus(false);
+            onBlur?.(e);
           }}
           hasLeftIcon={!!leftIcon}
           hasRightIcon={!!rightIcon}
@@ -49,7 +59,23 @@ const Input = ({
           selectionColor={colors.placeholder.onMain}
           {...rest}
         />
+        {!!rightIcon && (
+          <Styled.RightIconContainer>{rightIcon}</Styled.RightIconContainer>
+        )}
+        {secureTextEntry && (
+          <Styled.ToggleEye onPress={() => setShowPassword((old) => !old)}>
+            <Styled.EyeIcon
+              style={{ tintColor: colors.placeholder.main }}
+              source={showPassword ? openEye : closeEye}
+            ></Styled.EyeIcon>
+          </Styled.ToggleEye>
+        )}
       </Styled.Content>
+      {!!error && (
+        <Styled.Error size={10} type="bold">
+          {error}
+        </Styled.Error>
+      )}
     </Styled.Container>
   );
 };
