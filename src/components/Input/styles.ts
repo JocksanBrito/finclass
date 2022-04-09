@@ -1,6 +1,7 @@
+import { Pressable } from "react-native";
 import styled from "styled-components/native";
 import Text from "../Text";
-import { InputStyleProps } from "./types";
+import { InputProps } from "./types";
 
 export const Container = styled.View``;
 
@@ -8,18 +9,19 @@ export const Content = styled.View`
   justify-content: center;
 `;
 
-export const TextInput = styled.TextInput<InputStyleProps>`
+export const TextInput = styled.TextInput<InputProps>`
   background-color: ${({ theme }) => theme.colors.backdrop.main};
   color: ${({ theme }) => theme.colors.background.onMain};
   border-color: ${({ bordeColor }) => bordeColor};
   border-radius: ${({ theme }) => theme.borders.radius.sm}px;
   letter-spacing: ${({ theme }) => theme.typography.semiBold.letterSpacing}px;
-  font-family: ${({ theme }) => theme.typography.semiBold.fontFamily}px;
+  font-family: ${({ theme }) => theme.typography.semiBold.fontFamily};
   font-size: 13px;
   height: 50px;
   border-width: 1px;
   padding: 0 ${({ hasRightIcon }) => (hasRightIcon ? 40 : 15)}px 0
     ${({ hasLeftIcon }) => (hasLeftIcon ? 40 : 15)}px;
+    border-width: 1px;
 `;
 
 export const Label = styled(Text)`

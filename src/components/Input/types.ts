@@ -8,8 +8,8 @@ export interface Props extends TextInputProps {
   leftIcon: ReactNode;
 }
 
-export interface InputStyleProps {
-  bordeColor: string;
+export interface InputProps {
+  boderColor: string;
   hasLeftIcon: boolean;
   hasRightIcon: boolean;
 }

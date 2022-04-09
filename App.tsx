@@ -1,17 +1,18 @@
+import App from "./src/index";
 import React from "react";
 import { useFonts } from "expo-font";
-import { ThemeProvider } from "styled-components";
 import { fonts } from "./src/styles/fonts";
 import { theme } from "./src/styles/theme";
-import App from "./src/index";
+import { ThemeProvider } from "styled-components/native";
 
 export default function Main() {
+  const [fontsLoaded] = useFonts(fonts);
 
-  const [fontsLoaded] = useFonts(fonts)
-  
   if (!fontsLoaded) return null;
-  
-  return <ThemeProvider theme={theme}>
-      <App/>
+
+  return (
+    <ThemeProvider theme={theme}>
+      <App />
     </ThemeProvider>
-};
+  );
+}

@@ -1,15 +1,14 @@
 import React from "react";
+import Button from "../../components/Button";
+import Separator from "../../components/Separator";
 import { useNavigation } from "@react-navigation/native";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import BackButton from "../../components/BackButton";
-import Button from "../../components/Button";
 import Input from "../../components/Input";
-import Separator from "../../components/Separator";
 import Text from "../../components/Text/index";
 import lock from "../../../assets/icons/lock/icon.png";
 import { schemaLogin } from "./validation";
-
 
 import {
   Container,
@@ -19,33 +18,29 @@ import {
   OptionRightHeader,
 } from "./styles";
 
-
-
 const Login: React.FC = () => {
-    const navigation = useNavigation() 
+  const navigation = useNavigation();
   const {
     control,
     handleSubmit,
     setValue,
     formState: { errors },
   } = useForm({
-      resolver: yupResolver(schemaLogin),
-      defaultValues: {
-        email: "",
-        password: "",
-      }
+    resolver: yupResolver(schemaLogin),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
- 
-  const handleGoBack = () => navigation.goBack()
+
+  const handleGoBack = () => navigation.goBack();
 
   const onSubmit = async () => {
-      await handleSubmit(({email, password}) => {
-        //TODO
-        console.log(email, password);
-        
-
-      })();
-    }
+    await handleSubmit(({ email, password }) => {
+      //TODO
+      console.log(email, password);
+    })();
+  };
 
   return (
     <Container>
@@ -68,16 +63,19 @@ const Login: React.FC = () => {
           render={({ field: { onChange, onBlur, value } }) => {
             return (
               <Input
-                    autoCompleteType="email"
-                    autoCapitalize="none"
-                    keyboardType="email-address"
-                    name="E-mail"
-                    placeholder="Insira seu e-mail"
-                    onChange={onChange}
-                    onChangeText={(text) => setValue("email", text)}
-                    onBlur={onBlur}
-                    value={value}
-                    error={errors.email?.message} rightIcon={undefined} leftIcon={undefined}              />
+                autoCompleteType="email"
+                autoCapitalize="none"
+                keyboardType="email-address"
+                name="E-mail"
+                placeholder="Insira seu e-mail"
+                onChange={onChange}
+                onChangeText={(text) => setValue("email", text)}
+                onBlur={onBlur}
+                value={value}
+                error={errors.email?.message}
+                rightIcon={undefined}
+                leftIcon={undefined}
+              />
             );
           }}
         />
@@ -88,15 +86,18 @@ const Login: React.FC = () => {
           render={({ field: { onChange, onBlur, value } }) => {
             return (
               <Input
-                    autoCompleteType="password"
-                    autoCapitalize="none"
-                    name="Senha"
-                    placeholder="Insira sua senha"
-                    onChange={onChange}
-                    onChangeText={(text) => setValue("password", text)}
-                    onBlur={onBlur}
-                    value={value}
-                    error={errors.password?.message} rightIcon={undefined} leftIcon={undefined}              />
+                autoCompleteType="password"
+                autoCapitalize="none"
+                name="Senha"
+                placeholder="Insira sua senha"
+                onChange={onChange}
+                onChangeText={(text) => setValue("password", text)}
+                onBlur={onBlur}
+                value={value}
+                error={errors.password?.message}
+                rightIcon={undefined}
+                leftIcon={undefined}
+              />
             );
           }}
         />
