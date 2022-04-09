@@ -1,25 +1,29 @@
-import React from "react";
-import Button from "../../components/Button";
-import Separator from "../../components/Separator";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import BackButton from "../../components/BackButton";
+import Button from "../../components/Button";
 import Input from "../../components/Input";
+import Separator from "../../components/Separator";
 import Text from "../../components/Text/index";
 import lock from "../../../assets/icons/lock/icon.png";
-import { schemaLogin } from "./validation";
-
 import {
   Container,
-  Content,
   Header,
   LockIcon,
+  Content,
   OptionRightHeader,
 } from "./styles";
 
+import useAuth from "../../hooks/useAuth";
+import { schemaLogin } from "./validation";
+
 const Login: React.FC = () => {
+  const auth = useAuth();
+  
   const navigation = useNavigation();
+  
   const {
     control,
     handleSubmit,
@@ -37,7 +41,7 @@ const Login: React.FC = () => {
 
   const onSubmit = async () => {
     await handleSubmit(({ email, password }) => {
-      //TODO
+      auth.login()
       console.log(email, password);
     })();
   };
@@ -90,6 +94,7 @@ const Login: React.FC = () => {
                 autoCapitalize="none"
                 name="Senha"
                 placeholder="Insira sua senha"
+                secureTextEntry
                 onChange={onChange}
                 onChangeText={(text) => setValue("password", text)}
                 onBlur={onBlur}

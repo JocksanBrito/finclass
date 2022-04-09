@@ -11,6 +11,8 @@ import subscriptionIcon from "../../../assets/icons/subscription/subscription.pn
 import helpIcon from "../../../assets/icons/help/help.png";
 import termsIcon from "../../../assets/icons/terms/terms.png";
 
+import useAuth from "../../hooks/useAuth";
+
 import ListTile from "./LocalComponents/ListTile";
 import Button from "../../components/Button";
 
@@ -26,6 +28,7 @@ import {
 
 const Menu: React.FC = () => {
   const { colors } = useTheme();
+  const {logout} = useAuth();
   return (
     <Container>
       <ScrollView>
@@ -102,7 +105,7 @@ const Menu: React.FC = () => {
           icon={<IconTile source={termsIcon} />}
         />
         <Separator height={30} />
-        <Button textType="bold" outLined title="Sair" onPress={() => {}} />
+        <Button textType="bold"  title="Sair" onPress={logout} />
         <Text size={11} type="bold" color={colors.placeholder.main}>
           Finclass 1.3.0
         </Text>
