@@ -32,7 +32,7 @@ export const ContainerEarnedItem = styled.View`
   align-items: center;
 `;
 
-export const EarnedItemLogo = styled.View`
+export const EarnedItemLogo = styled.Image`
   width: 40px;
   height: 40px;
 `;
