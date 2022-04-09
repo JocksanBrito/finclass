@@ -7,10 +7,14 @@ import download from "../../../assets/icons/download.png";
 import boxsearch from "../../../assets/icons/boxsearch.png";
 import boxmenu from "../../../assets/icons/boxmenu.png";
 
+import Home from "../../pages/Home/index"
+import Donwload from "../../pages/Donwloads/index"
+import Search from "../../pages/Search/index"
+import Menu from "../../pages/Menu/index"
+
 import { Icon } from "./styles";
 
 import Text from "../../components/Text";
-import Access from "../../pages/Access";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +37,7 @@ const SingnedInBottomTab: React.FC = () => {
     >
       <Tab.Screen
         name="home"
-        component={Access}
+        component={Home}
         options={{
           title: "Início",
           tabBarIcon: ({ color, size }) => (
@@ -53,7 +57,7 @@ const SingnedInBottomTab: React.FC = () => {
 
       <Tab.Screen
         name="download"
-        component={Access}
+        component={Donwload}
         options={{
           title: "Downloads",
           tabBarIcon: ({ color, size }) => (
@@ -73,7 +77,7 @@ const SingnedInBottomTab: React.FC = () => {
       
       <Tab.Screen
         name="boxsearch"
-        component={Access}
+        component={Search}
         options={{
           title: "Buscar",
           tabBarIcon: ({ color, size }) => (
@@ -93,7 +97,7 @@ const SingnedInBottomTab: React.FC = () => {
       
       <Tab.Screen
         name="boxmenu"
-        component={Access}
+        component={Menu}
         options={{
           title: "Menu",
           tabBarIcon: ({ color, size }) => (
