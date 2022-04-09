@@ -1,10 +1,18 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import { useTheme } from "styled-components";
-import Acess from "./pages/Acess";
+import Navigation from './navigation/index';
+import { StatusBar } from "expo-status-bar";
+
+
 
 const App: React.FC = () => {
-  const { typography } = useTheme();
-  return<Acess />  
+ 
+  return <>
+      <StatusBar style="light"/>
+      <NavigationContainer>
+        <Navigation />  
+      </NavigationContainer>
+  </>
 };
 
 export default App;
