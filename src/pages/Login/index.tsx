@@ -21,9 +21,9 @@ import { schemaLogin } from "./validation";
 
 const Login: React.FC = () => {
   const auth = useAuth();
-  
+
   const navigation = useNavigation();
-  
+
   const {
     control,
     handleSubmit,
