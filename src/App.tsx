@@ -1,12 +1,13 @@
 import React from 'react';
-
-import {Container, Title} from './styles';
+import {ThemeProvider} from 'styled-components';
+import Main from './screen/Home';
+import {theme} from './styles/theme';
 
 const App: React.FC = () => {
   return (
-    <Container>
-      <Title>Finclass.v2</Title>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Main />
+    </ThemeProvider>
   );
 };
 

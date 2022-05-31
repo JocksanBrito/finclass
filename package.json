@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "preandroid": "npx react-native link",
+    "preios": "npx react-native link"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.10",
